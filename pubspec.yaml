@@ -23,7 +23,16 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/illustrations/
   fonts:
+  - family: Comic
+    fonts:
+      - asset: assets/fonts/comic/ComicRelief-Regular.ttf
+        weight: 100
+      - asset: assets/fonts/comic/ComicRelief-Bold.ttf
+        weight: 200
   - family: Inter
     fonts:
       - asset: assets/fonts/inter/Inter_18pt-Thin.ttf
