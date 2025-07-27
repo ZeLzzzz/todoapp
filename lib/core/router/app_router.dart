@@ -6,4 +6,8 @@ final router = GoRouter(routes: [
     path: '/',
     builder: (context, state) => const OnboardingOneView(),
   ),
+  GoRoute(
+    path: '/onboarding-two',
+    builder: (context, state) => const OnboardingTwoView(),
+  ),
 ]);
