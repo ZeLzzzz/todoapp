@@ -19,7 +19,7 @@ class PrimaryButton extends StatelessWidget {
     this.fullscreen = false,
     this.width,
     this.height,
-    this.borderRadius = 12.0,
+    this.borderRadius = 10,
   });
 
   @override
@@ -60,7 +60,7 @@ class SecondaryButton extends StatelessWidget {
     this.fullscreen = false,
     this.width,
     this.height,
-    this.borderRadius = 12.0,
+    this.borderRadius = 10,
   });
 
   @override
@@ -99,7 +99,7 @@ class NeutralButton extends StatelessWidget {
     this.fullscreen = false,
     this.width,
     this.height,
-    this.borderRadius = 12.0,
+    this.borderRadius = 10,
   });
 
   @override
