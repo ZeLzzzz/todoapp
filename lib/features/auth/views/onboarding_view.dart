@@ -60,7 +60,6 @@ class OnboardingOneView extends StatelessWidget {
             SizedBox(height: 70),
             PrimaryButton(
               height: 60,
-              width: 110,
               onPressed: () {
                 context.push('/onboarding-two');
               },
@@ -87,6 +86,7 @@ class OnboardingTwoView extends StatelessWidget {
     return Scaffold(
       appBar: AppbarWidget(
         showBackButton: false,
+        automaticallyImplyLeading: false,
         title: Row(
           mainAxisSize: MainAxisSize.min,
           spacing: 5,
@@ -143,11 +143,7 @@ class OnboardingTwoView extends StatelessWidget {
                   onPressed: () {
                     context.pop('/');
                   },
-                  icon: Icon(
-                    FeatherIcons.arrowLeft,
-                    size: 20,
-                    color: Colors.white,
-                  ),
+                  icon: FeatherIcons.arrowLeft,
                   iconAlignment: IconAlignment.start,
                   borderRadius: 20,
                   child: Text('Back'),
@@ -155,7 +151,7 @@ class OnboardingTwoView extends StatelessWidget {
                 PrimaryButton(
                   height: 60,
                   onPressed: () {
-                    //
+                    context.push('/get-started');
                   },
                   borderRadius: 20,
                   icon: Icon(
@@ -166,6 +162,84 @@ class OnboardingTwoView extends StatelessWidget {
                   child: Text('Get Started'),
                 ),
               ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class GetStartedView extends StatelessWidget {
+  const GetStartedView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppbarWidget(
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          spacing: 5,
+          children: [
+            Image.asset(
+              'assets/illustrations/logos.png',
+              width: 30,
+              height: 30,
+            ),
+            Text(
+              'FlowDo',
+              style: TextStyle(fontFamily: 'Comic', fontWeight: FontWeight.w200),
+            ),
+          ],
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              'assets/illustrations/GetStarted1.png',
+              width: 280,
+              height: 280,
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  Text('Get Started to planning',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  SizedBox(height: 19),
+                  Text(
+                    'Ready to start planning and keep your tasks organized every day?',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  SizedBox(height: 70),
+                  NeutralButton(
+                    height: 60,
+                    fullscreen: true,
+                    onPressed: () {
+                      context.push('/login');
+                    },
+                    child: Text('Log in'),
+                  ),
+                  SizedBox(height: 10),
+                  PrimaryButton(
+                    height: 60,
+                    fullscreen: true,
+                    onPressed: () {
+                      //
+                    },
+                    child: Text('Register'),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

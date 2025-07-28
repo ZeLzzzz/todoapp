@@ -82,7 +82,7 @@ class SecondaryButton extends StatelessWidget {
 
 class NeutralButton extends StatelessWidget {
   final Widget child;
-  final Widget? icon;
+  final IconData? icon;
   final IconAlignment iconAlignment;
   final VoidCallback? onPressed;
   final bool fullscreen;
@@ -108,11 +108,16 @@ class NeutralButton extends StatelessWidget {
 
     final button = ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
-          backgroundColor: isDark ? const Color(0xFF2C2C2C) : const Color(0xFFF5F5F5),
-          foregroundColor: isDark ? Colors.white : Colors.black,
+          backgroundColor: isDark ? const Color(0xFF2C2C2C) : const Color(0xFFF4F4F4),
+          foregroundColor: isDark ? Colors.white : const Color(0xFF2C2C2C),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius))),
       onPressed: onPressed,
-      icon: icon,
+      icon: (icon) != null
+          ? Icon(
+              icon,
+              color: isDark ? Colors.white : const Color(0xFF2C2C2C),
+            )
+          : null,
       label: child,
     );
 

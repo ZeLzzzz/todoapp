@@ -6,13 +6,15 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
   final List<Widget>? actions;
   final bool centerTitle;
-  final bool showBackButton; // Tambahan properti baru
+  final bool automaticallyImplyLeading;
+  final bool showBackButton;
 
   const AppbarWidget({
     super.key,
     required this.title,
     this.actions,
     this.centerTitle = true,
+    this.automaticallyImplyLeading = true,
     this.showBackButton = true,
   });
 
@@ -27,6 +29,7 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
       title: title,
       centerTitle: centerTitle,
       actions: actions,
+      automaticallyImplyLeading: automaticallyImplyLeading,
       leading: (showBackButton && canGoBack)
           ? IconButton(
               icon: const Icon(FeatherIcons.arrowLeft),
