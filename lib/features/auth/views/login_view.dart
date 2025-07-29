@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/shared/widgets/appbar_widget.dart';
 import 'package:todoapp/shared/widgets/button_widget.dart';
-import 'package:todoapp/shared/widgets/input_widget.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -22,18 +21,18 @@ class LoginView extends StatelessWidget {
               SizedBox(height: 20),
               Text('Email', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
               SizedBox(height: 10),
-              InputWidget(),
+              TextField(),
               SizedBox(height: 20),
               Text('Password', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
               SizedBox(height: 10),
-              InputWidget(),
+              TextField(),
               SizedBox(height: 20),
               Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 Text('Forgot Password?', style: TextStyle(fontSize: 14, color: Colors.blue))
               ]),
               SizedBox(height: 20),
               PrimaryButton(
-                height: 60,
+                height: 55,
                 fullscreen: true,
                 onPressed: () {
                   // Handle login logic here

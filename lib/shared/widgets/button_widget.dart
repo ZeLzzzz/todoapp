@@ -9,6 +9,7 @@ class PrimaryButton extends StatelessWidget {
   final int? width;
   final int? height;
   final double borderRadius;
+  final bool isDisabled;
 
   const PrimaryButton({
     super.key,
@@ -20,12 +21,13 @@ class PrimaryButton extends StatelessWidget {
     this.width,
     this.height,
     this.borderRadius = 10,
+    this.isDisabled = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final button = ElevatedButton.icon(
-      onPressed: onPressed,
+      onPressed: isDisabled ? null : onPressed,
       style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius))),
       iconAlignment: iconAlignment,
@@ -108,7 +110,7 @@ class NeutralButton extends StatelessWidget {
 
     final button = ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
-          backgroundColor: isDark ? const Color(0xFF2C2C2C) : const Color(0xFFF4F4F4),
+          backgroundColor: isDark ? const Color(0xFF2C2C2C) : const Color(0xFFF5F5F5),
           foregroundColor: isDark ? Colors.white : const Color(0xFF2C2C2C),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius))),
       onPressed: onPressed,

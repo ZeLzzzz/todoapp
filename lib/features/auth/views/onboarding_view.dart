@@ -222,7 +222,7 @@ class GetStartedView extends StatelessWidget {
                   ),
                   SizedBox(height: 70),
                   NeutralButton(
-                    height: 60,
+                    height: 55,
                     fullscreen: true,
                     onPressed: () {
                       context.push('/login');
@@ -231,10 +231,10 @@ class GetStartedView extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   PrimaryButton(
-                    height: 60,
+                    height: 55,
                     fullscreen: true,
                     onPressed: () {
-                      //
+                      context.push('/email-validation');
                     },
                     child: Text('Register'),
                   ),
