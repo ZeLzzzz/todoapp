@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:todoapp/core/network/dio_client.dart';
 import 'package:todoapp/shared/widgets/appbar_widget.dart';
 import 'package:todoapp/shared/widgets/button_widget.dart';
 
@@ -34,8 +36,9 @@ class LoginView extends StatelessWidget {
               PrimaryButton(
                 height: 55,
                 fullscreen: true,
-                onPressed: () {
-                  // Handle login logic here
+                onPressed: () async {
+                  final response = await DioClient().dio.get(dotenv.get('API_BASE_URL'));
+                  print(response.data);
                 },
                 child: Text('Log in'),
               )
