@@ -27,7 +27,9 @@ class LoginView extends StatelessWidget {
               SizedBox(height: 20),
               Text('Password', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
               SizedBox(height: 10),
-              TextField(),
+              TextField(
+                obscureText: true,
+              ),
               SizedBox(height: 20),
               Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 Text('Forgot Password?', style: TextStyle(fontSize: 14, color: Colors.blue))
