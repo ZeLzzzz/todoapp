@@ -19,7 +19,7 @@ class PrimaryButton extends StatelessWidget {
     this.onPressed,
     this.fullscreen = false,
     this.width,
-    this.height,
+    this.height = 50,
     this.borderRadius = 10,
     this.isDisabled = false,
   });

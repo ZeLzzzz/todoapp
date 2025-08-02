@@ -2,9 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DioClient {
+  static final DioClient _instance = DioClient._internal();
+
+  factory DioClient() => _instance;
+
   final Dio _dio;
 
-  DioClient()
+  DioClient._internal()
       : _dio = Dio(
           BaseOptions(
             baseUrl: dotenv.get('API_BASE_URL'),
