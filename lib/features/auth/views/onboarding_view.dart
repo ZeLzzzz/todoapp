@@ -234,7 +234,7 @@ class GetStartedView extends StatelessWidget {
                     height: 55,
                     fullscreen: true,
                     onPressed: () {
-                      context.push('/email-validation');
+                      context.push('/register');
                     },
                     child: Text('Register'),
                   ),

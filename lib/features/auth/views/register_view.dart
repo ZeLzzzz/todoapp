@@ -5,8 +5,8 @@ import 'package:todoapp/features/auth/viewmodels/register_viewmodel.dart';
 import 'package:todoapp/shared/widgets/appbar_widget.dart';
 import 'package:todoapp/shared/widgets/button_widget.dart';
 
-class EmailValidationView extends StatelessWidget {
-  const EmailValidationView({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +18,7 @@ class EmailValidationView extends StatelessWidget {
           centerTitle: true,
         ),
         body: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Consumer<RegisterViewmodel>(builder: (context, viewModel, child) {
@@ -33,6 +34,7 @@ class EmailValidationView extends StatelessWidget {
                     TextFormField(
                       controller: viewModel.usernameController,
                       validator: viewModel.validateUsername,
+                      keyboardType: TextInputType.text,
                     ),
                     const SizedBox(height: 20),
                     Text('Email', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
@@ -52,6 +54,7 @@ class EmailValidationView extends StatelessWidget {
                       controller: viewModel.passwordController,
                       obscureText: true,
                       validator: viewModel.validatePassword,
+                      keyboardType: TextInputType.visiblePassword,
                     ),
                     const SizedBox(height: 20),
                     PrimaryButton(
@@ -59,7 +62,7 @@ class EmailValidationView extends StatelessWidget {
                       fullscreen: true,
                       onPressed: () {
                         if (viewModel.formKey.currentState!.validate()) {
-                          viewModel.register();
+                          viewModel.register(context);
                         }
                       },
                       child: Text('Next'),

@@ -1,8 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:todoapp/core/di/service_locator.dart';
 import 'package:todoapp/core/network/dio_client.dart';
+import 'package:todoapp/data/repositories/auth_repository.dart';
+import 'package:todoapp/shared/widgets/toast_widget.dart';
+import 'package:go_router/go_router.dart';
 
 class RegisterViewmodel extends ChangeNotifier {
+  final AuthRepository _authRepository = sl<AuthRepository>();
+
   final formKey = GlobalKey<FormState>();
 
   final usernameController = TextEditingController();
@@ -45,17 +51,18 @@ class RegisterViewmodel extends ChangeNotifier {
     return null;
   }
 
-  void register() async {
+  void register(BuildContext context) async {
     try {
-      final response = await DioClient().dio.post(
-        '/auth/register',
-        data: {
-          'username': usernameController.text,
-          'email': emailController.text,
-          'password': passwordController.text,
-        },
-      );
-      print('Registration successful: ${response.data}');
+      await _authRepository.register(
+          username: usernameController.text,
+          email: emailController.text,
+          password: passwordController.text);
+
+      ToastWidget.showToast(context,
+          message: 'Registration successful! Please verify your email.',
+          backgroundColor: Color(0xFF2ECC71));
+
+      context.go('/verify-email');
     } on DioException catch (e) {
       print('Dio error: ${e.message}');
       print('Response: ${e.response?.data}');
