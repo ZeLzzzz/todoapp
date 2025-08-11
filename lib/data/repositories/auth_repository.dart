@@ -19,6 +19,31 @@ class AuthRepository {
     return loginResponse;
   }
 
+  Future<bool> isUserHavingSession() async {
+    final token = await SharedPrefsUtil.getSession('token');
+
+    if (token == null) return false;
+
+    return true;
+  }
+
+  Future<bool> isTheUserTokenValid() async {
+    try {
+      final token = await SharedPrefsUtil.getSession('token');
+      final response = await _dio.get(
+        '/auth/check-token',
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+          },
+        ),
+      );
+      return response.statusCode == 200;
+    } catch (e) {
+      return false;
+    }
+  }
+
   Future<void> register({
     required String username,
     required String email,

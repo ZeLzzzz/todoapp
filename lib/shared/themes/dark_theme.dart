@@ -24,6 +24,9 @@ final darkTheme = ThemeData(
       ),
     ),
   ),
+  bottomAppBarTheme: BottomAppBarTheme(
+    color: darkneutralColor,
+  ),
   inputDecorationTheme: InputDecorationTheme(
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),

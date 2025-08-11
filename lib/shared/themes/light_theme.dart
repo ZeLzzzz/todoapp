@@ -24,6 +24,9 @@ final lightTheme = ThemeData(
       ),
     ),
   ),
+  bottomAppBarTheme: BottomAppBarTheme(
+    color: Color(0xFFEDEDED),
+  ),
   inputDecorationTheme: InputDecorationTheme(
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
